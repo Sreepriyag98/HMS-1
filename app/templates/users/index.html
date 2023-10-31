@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            padding: 14px 16px;
+            display: inline-block;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .tile {
+            background-color: #0074D9;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin: 10px;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .radio-input {
+            display: none;
+        }
+
+        .radio-label {
+
+            color: white;
+            padding: 10px;
+            margin: 10px 0; /* Add margin-top and margin-bottom */
+            cursor: pointer;
+            display: inline-block; /* To place buttons horizontally */
+        }
+
+        .user-list {
+            display: none;
+        }
+
+        .radio-input:checked + .radio-label + .user-list {
+            display: block;
+        }
+        td{
+            padding: 10px;
+        }
+        th{
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="tile" id="user">Users</div>
+    </div>
+    <input type="radio" id="user-radio" class="radio-input" name="content" checked>
+    <label for="user-radio" class="radio-label">
+        <br> <!-- Add space above buttons -->
+        <button><i class="fas fa-user-plus"></i> New Registration</button>
+        <button style="margin-left: 25px;"><i class="fas fa-user-edit"></i> Edit</button>
+    </label>
+    <div class="user-list">
+        <h1>User List</h1>
+        <table>
+            <tr>
+                <th>User ID</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Additional Phone</th>
+                <th>Email</th>
+                <th>Aadhar_num</th>
+                <th>Date of Birth</th>
+                <th>Created Date</th>
+                <th>Updated By</th>
+                <th>Created By</th>
+            </tr>
+            {% for user in users %}
+            <tr>
+                <td>{{ user.user_id }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.gender }}</td>
+                <td>{{ user.address }}</td>
+                <td>{{ user.phone }}</td>
+                <td>{{ user.addi_phone }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.adhar_num }}</td>
+                <td>{{ user.DOB }}</td>
+                <td>{{ user.created_date }}</td>
+                <td>{{ user.updated_by }}</td>
+                <td>{{ user.created_by }}</td>
+            </tr>
+        {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
