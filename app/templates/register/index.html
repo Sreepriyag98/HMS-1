@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="password"],
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-group select {
+            height: 35px;
+        }
+
+        .form-group input[type="radio"] {
+            margin-right: 10px;
+        }
+        .form-group input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .form-group input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .gender-options input[type="radio"],
+        .gender-options label {
+            display: inline-block;
+            margin-right: 10px; 
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Registration Form</h2>
+        
+        <form action="/register" method="POST">
+            <div class="form-group">
+                <label for="first_name">First Name</label>
+                <input type="text" id="first_name" name="first_name" value="{{ request.form['first_name'] }}" required>
+
+            </div>
+
+            <div class="form-group">
+                <label for="last_name">Last Name</label>
+                <input type="text" id="last_name" name="last_name" value="{{ request.form['last_name'] }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <div class="gender-options">
+                    <input type="radio" id="male" name="gender" value="{{ request.form['male'] }}">
+                    <label for="male">Male</label>
+                    <input type="radio" id="female" name="gender" value="{{ request.form['female'] }}">
+                    <label for="female">Female</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="DOB" name="DOB" value="{{ request.form['DOB'] }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="text" id="phone" name="phone"value="{{ request.form['phone'] }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="additional_phone">Additional Phone Number</label>
+                <input type="text" id="additional_phone" name="additional_phone"value="{{ request.form['addi_phone'] }}">
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea id="address" name="address" rows="4" cols="50" value="{{ request.form['address'] }}"required></textarea>
+            </div>
+            
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" value="{{ request.form['email'] }}"required>
+            </div>
+
+            <div class="form-group">
+                <label for="aadhar">Aadhar Number</label>
+                <input type="text" id="aadhar" name="aadhar" value="{{ request.form['adhar_num'] }}"required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Create Password</label>
+                <input type="password" id="password" name="password" value="{{ request.form['password'] }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="confirm_password">Confirm Password</label>
+                <input type="password" id="confirm_password" name="confirm_password" required>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Register">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

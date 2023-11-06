@@ -4,10 +4,14 @@ from config import Config
 
 from app.extensions import db
 
+
 def create_app(config_class=Config):
     app = Flask(__name__)
+    app.config.from_mapping(
+    SECRET_KEY='dev',
+    SQLALCHEMY_DATABASE_URI='sqlite:///app.db'
+)
     app.config.from_object(config_class)
-
     # Initialize Flask extensions here
 
     db.init_app(app)
@@ -23,7 +27,14 @@ def create_app(config_class=Config):
 
     from app.register import bp as register_bp
     app.register_blueprint(register_bp, url_prefix='/register')
+    
 
+    from app.auth import bp as auth_bp
+    app.register_blueprint(auth_bp,url_prefix='/auth')
+
+    
+
+    
 
 
     @app.route('/test/')

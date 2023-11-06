@@ -9,11 +9,6 @@
             padding: 0;
         }
 
-        .navbar {
-            background-color: #333;
-            overflow: hidden;
-        }
-
         .navbar a {
             color: white;
             text-align: center;
@@ -23,20 +18,9 @@
         }
 
         .navbar a:hover {
-            background-color: #ddd;
+            background-color: #311a1a;
             color: black;
         }
-
-        .tile {
-            background-color: #0074D9;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            margin: 10px;
-            display: inline-block;
-            cursor: pointer;
-        }
-
         .radio-input {
             display: none;
         }
@@ -66,14 +50,13 @@
     </style>
 </head>
 <body>
-    <div class="navbar">
-        <div class="tile" id="user">Users</div>
-    </div>
     <input type="radio" id="user-radio" class="radio-input" name="content" checked>
     <label for="user-radio" class="radio-label">
         <br> <!-- Add space above buttons -->
-        <button><i class="fas fa-user-plus"></i> New Registration</button>
-        <button style="margin-left: 25px;"><i class="fas fa-user-edit"></i> Edit</button>
+        <a href="{{ url_for('register.index') }}"style="float: right; margin-right: 20px;">
+            <button><i class="fas fa-user-plus"></i> New Registration</button>
+        </a>
+        
     </label>
     <div class="user-list">
         <h1>User List</h1>
